@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="pinPoint.css">
+    <title>Pinpoint Location - Anand Municipal Corporation</title>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <div class="logo-text">Anand <span>Municipal</span> Corporation</div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <!-- Instructions -->
+        <div class="instructions">
+            <h2>Pinpoint Issue Location</h2>
+            <p>Accurately identify the location of the issue using one of the methods below. The more precise the
+                location, the faster we can resolve the problem.</p>
+
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3>Choose a Method</h3>
+                        <p>Select how you want to specify the location</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3>Pinpoint Location</h3>
+                        <p>Use the map to mark the exact location</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3>Confirm</h3>
+                        <p>Verify the location details and submit</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Map Container -->
+        <div class="map-container">
+            <div id="map"></div>
+        </div>
+
+        <!-- Location Controls -->
+        <div class="location-controls">
+            <div class="control-header">
+                <h2>Select Location Method</h2>
+            </div>
+
+            <div class="location-methods">
+                <div class="method-card">
+                    <div class="method-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <h3>Click on Map</h3>
+                    <p>Click directly on the map to mark the location</p>
+                    <p class="hint">(Most accurate method)</p>
+                </div>
+
+                <div class="method-card">
+                    <div class="method-icon">
+                        <i class="fas fa-location-arrow"></i>
+                    </div>
+                    <h3>Use My Location</h3>
+                    <p>Allow browser access to your device's location</p>
+                    <button class="btn btn-primary" id="detectLocation">
+                        <i class="fas fa-crosshairs"></i> Detect My Location
+                    </button>
+                </div>
+
+                <div class="method-card">
+                    <div class="method-icon">
+                        <i class="fas fa-search-location"></i>
+                    </div>
+                    <h3>Search Address</h3>
+                    <p>Search for a location by address or landmark</p>
+                    <div class="address-search">
+                        <div class="search-box">
+                            <input type="text" id="addressInput" placeholder="Enter address or landmark in Anand">
+                            <button class="btn btn-secondary" id="searchAddress">
+                                <i class="fas fa-search"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Coordinates Display -->
+            <div class="coordinates">
+                <h3>Selected Location Coordinates</h3>
+                <div class="coordinate-values">
+                    <div class="coordinate-box">
+                        <div class="coordinate-label">Latitude</div>
+                        <div class="coordinate-value" id="latitude">23.1000° N</div>
+                    </div>
+                    <div class="coordinate-box">
+                        <div class="coordinate-label">Longitude</div>
+                        <div class="coordinate-value" id="longitude">72.6000° E</div>
+                    </div>
+                    <div class="coordinate-box">
+                        <div class="coordinate-label">Address</div>
+                        <div class="coordinate-value" id="address">Not specified</div>
+                    </div>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 20px;">
+                <button class="btn btn-primary" id="confirmLocation" style="padding: 12px 30px;">
+                    <i class="fas fa-check-circle"></i> Confirm Location
+                </button>
+                <button class="btn btn-secondary" id="cancelButton" style="padding: 12px 30px; margin-left:10px;">
+                    Cancel
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 Anand Municipal Corporation. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script src="pinPoint.js"></script>
+
+</body>
+</html>

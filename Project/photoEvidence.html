@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="photoEvidence.css">
+    <title>Document</title>
+</head>
+<body>
+      <div class="container">
+        <header>
+            <div class="logo">
+                <div class="logo-text">Anand <span>Municipal</span> Corporation</div>
+            </div>
+            <h1>Photo Evidence Collection</h1>
+            <p class="subtitle">Add visual evidence to support your issue report</p>
+        </header>
+
+        <div class="main-content">
+            <h2 class="section-title">Add Photo Evidence</h2>
+            <p>Visual evidence helps us better understand and resolve issues more quickly. You can add up to 5 photos.</p>
+            
+            <div class="upload-options">
+                <div class="upload-option" id="uploadOption">
+                    <div class="option-icon">
+                        <i class="fas fa-cloud-upload-alt"></i>
+                    </div>
+                    <h3>Upload Photos</h3>
+                    <p>Select images from your device</p>
+                    <button class="btn btn-outline">Choose Files</button>
+                    <input type="file" id="fileInput" accept="image/*" multiple style="display: none;">
+                </div>
+                
+                <div class="upload-option" id="cameraOption">
+                    <div class="option-icon">
+                        <i class="fas fa-camera"></i>
+                    </div>
+                    <h3>Take Photo</h3>
+                    <p>Use your device's camera</p>
+                    <button class="btn btn-outline">Open Camera</button>
+                </div>
+            </div>
+            
+            <!-- Preview Area -->
+            <div class="preview-container" id="previewContainer">
+                <h3 class="section-title">Preview</h3>
+                <div class="preview-area" id="previewArea">
+                    <div id="cameraView" style="display: none;">
+                        <video id="video" autoplay playsinline></video>
+                        <div class="camera-controls">
+                            <button class="btn btn-primary" id="captureBtn"><i class="fas fa-camera"></i> Capture</button>
+                            <button class="btn btn-outline" id="switchCameraBtn"><i class="fas fa-sync"></i> Switch Camera</button>
+                        </div>
+                    </div>
+                    <div id="imagePreview"></div>
+                    <div id="placeholderText">
+                        <i class="fas fa-image" style="font-size: 3rem; color: #ccc; margin-bottom: 15px;"></i>
+                        <p>Your image will appear here</p>
+                    </div>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <button class="btn btn-primary" id="addPhotoBtn" style="display: none;"><i class="fas fa-plus"></i> Add Photo</button>
+                    <button class="btn btn-outline" id="cancelBtn"><i class="fas fa-times"></i> Cancel</button>
+                </div>
+            </div>
+            
+            <!-- Uploaded Photos -->
+            <div class="uploaded-photos">
+                <h3 class="section-title">Your Photos <span id="photoCount">(0/5)</span></h3>
+                <div class="photos-grid" id="photosGrid">
+                    <div class="empty-state" style="grid-column: 1 / -1; text-align: center; padding: 30px; color: #666;">
+                        <i class="fas fa-images" style="font-size: 3rem; margin-bottom: 15px; opacity: 0.5;"></i>
+                        <p>No photos added yet. Upload or take photos to add visual evidence.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Action Buttons -->
+            <div class="action-buttons">
+                <button class="btn btn-outline"><i class="fas fa-arrow-left"></i> Back to Report</button>
+                <button class="btn btn-primary">Continue <i class="fas fa-arrow-right"></i></button>
+            </div>
+        </div>
+
+        <footer>
+            <p>&copy; 2023 Anand Municipal Corporation. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <script src="photoEvidence.js"></script>
+</body>
+</html>

@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Urban Issue Reporting platform</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="index.css">
+    <style>
+       
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <div class="logo-text">Urban <span>Issue</span> Reporting Platform</div>
+                </div>
+
+                <button class="mobile-menu-btn">
+                    <i class="fas fa-bars"></i>
+                </button>
+
+                <nav class="nav-menu">
+                    <ul>
+                        <li><a href="#" class="active">Home</a></li>
+                        <li><a href="#report">Report Issue</a></li>
+                        <li><a href="#status">Check Status</a></li>
+                        <li><a href="index.html">Services</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </nav>
+
+                <div class="auth-buttons" id="authButtons">
+                    <button class="auth-btn login" onclick="window.location.href='login.html'">
+                        <i class="fas fa-sign-in-alt"></i> Login
+                    </button>
+                    <button class="auth-btn register" onclick="window.location.href='register.html'">
+                        <i class="fas fa-user-plus"></i> Register
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Making Anand Cleaner & Smarter Together</h1>
+            <p>Report municipal issues, track resolution status, and contribute to better urban management in Anand</p>
+            <div class="hero-buttons">
+                <a href="#report" class="btn btn-primary btn-large">Report an Issue</a>
+                <a href="#status" class="btn btn-accent btn-large" id="status">Check Status</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="container">
+            <div class="section-title">
+                <h2>How Our Platform Works</h2>
+                <p>An innovative solution for civic problem reporting and resolution tracking</p>
+            </div>
+
+            <div class="features-grid">
+                <div class="feature-card">
+                    <a href="pinPoint.html" style="text-decoration: none; color: inherit;">
+                        <div class="feature-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <h3>Pinpoint Location</h3>
+                        <p>Report issues with precise location mapping for faster identification and resolution</p>
+                    </a>
+                </div>
+
+                <div class="feature-card">
+                    <a href="photoEvidence.html">
+                        <div class="feature-icon">
+                            <i class="fas fa-camera"></i>
+                        </div>
+                        <h3>Photo Evidence</h3>
+                        <p>Upload photos of the problem to help our team understand the issue better</p>
+                    </a>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Real-time Tracking</h3>
+                    <p>Monitor the status of your reported issues in real-time from submission to resolution</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="how-it-works">
+        <div class="container">
+            <div class="section-title">
+                <h2>How To Report An Issue</h2>
+                <p>Follow these simple steps to report municipal issues in Anand</p>
+            </div>
+
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Describe the Issue</h3>
+                    <p>Select category and provide details about the problem</p>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>Add Location</h3>
+                    <p>Pinpoint the exact location on our interactive map</p>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Upload Photos</h3>
+                    <p>Add images to help us understand the issue better</p>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <h3>Submit & Track</h3>
+                    <p>Receive a tracking ID and monitor resolution progress</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Report Section -->
+    <section class="report-section" id="report">
+        <div class="container">
+            <div class="section-title">
+                <h2>Report An Issue</h2>
+                <p>Help us make Anand better by reporting municipal issues</p>
+            </div>
+
+            <div class="report-form">
+                <form id="issueForm">
+                    <div class="form-group">
+                        <label for="issueCategory">Issue Category</label>
+                        <select class="form-control" id="issueCategory">
+                            <option value="">Select a category</option>
+                            <option value="roads">Roads & Footpaths</option>
+                            <option value="water">Water Supply</option>
+                            <option value="garbage">Garbage Collection</option>
+                            <option value="streetlights">Streetlights</option>
+                            <option value="drainage">Drainage Issues</option>
+                            <option value="parks">Parks & Public Spaces</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="issueDescription">Issue Description *</label>
+                        <textarea class="form-control" id="issueDescription" name="issueDescription" 
+                                placeholder="Please describe the issue in detail..." required></textarea>
+                    </div>
+
+                <div class="form-group">
+    <label for="issueLocation">Location</label>
+    <div id="locationWrapper">
+        <button id="chooseLocationBtn" class="btn btn-primary">Choose Location</button>
+
+        <!-- This will show selected address after confirmation -->
+        <div id="locationDisplay" style="display:none; margin-top:15px; padding:10px; border:1px solid #ddd; border-radius:8px;">
+            <h3>📍 Selected Location</h3>
+            <p><strong>Address:</strong> <span id="selectedAddress"></span></p>
+            <p><strong>Latitude:</strong> <span id="selectedLat"></span></p>
+            <p><strong>Longitude:</strong> <span id="selectedLng"></span></p>
+            <button id="changeLocationBtn" class="btn btn-secondary">Change Location</button>
+        </div>
+    </div>
+    <input type="hidden" id="issueLocation" name="issueLocation">
+</div>
+
+
+                    <div class="form-group">
+                        <label for="issuePhotos">Upload Photos</label>
+                        <div id="photoUploader">
+                            <a href="photoEvidence.html">
+                            <button type="button" class="btn btn-outline" id="uploadPhotosBtn">
+                                <i class="fas fa-camera"></i> Upload Photos
+                            </button>
+                            </a>
+                            <div id="photoPreview" class="photo-preview-container" style="display: none;">
+                                <h4>Selected Photos</h4>
+                                <div id="photoThumbnails" class="photo-thumbnails"></div>
+                                <button type="button" class="btn btn-outline btn-small" id="changePhotosBtn">
+                                    <i class="fas fa-edit"></i> Change Photos
+                                </button>
+                            </div>
+                        </div>
+                        <input type="file" id="issuePhotos" name="issuePhotos" multiple accept="image/*"
+                            style="display: none;">
+                    </div>
+
+                    <button type="submit" class="btn btn-primary btn-large">Submit Report</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Status Section -->
+    <section class="status-section" id="status">
+        <div class="container">
+            <div class="section-title">
+                <h2>Check Issue Status</h2>
+                <p>Track the progress of your reported issues</p>
+            </div>
+
+            <div class="status-check">
+                <p>Enter your tracking ID to check the status of your reported issue</p>
+                <div class="status-input">
+                    <input type="text" placeholder="Enter tracking ID">
+                    <button class="btn btn-primary">Check Status</button>
+                </div>
+            </div>
+
+            <div class="section-title" style="margin-top: 60px;">
+                <h2>Recently Resolved Issues</h2>
+                <p>See how our platform is making a difference in Anand</p>
+            </div>
+
+            <div class="issues-grid" id="issuesGrid">
+                <!-- Dynamic issues will be inserted here -->
+                <div class="empty-state" id="emptyState" style="grid-column: 1 / -1; text-align: center; padding: 60px 20px; color: #666;">
+                    <i class="fas fa-clipboard-list" style="font-size: 4rem; margin-bottom: 20px; opacity: 0.3;"></i>
+                    <h3 style="margin-bottom: 10px; color: var(--dark);">No Issues Reported Yet</h3>
+                    <p>Be the first to report a municipal issue and help improve Anand!</p>
+                    <a href="#report" class="btn btn-primary" style="margin-top: 20px; text-decoration: none; display: inline-flex; align-items: center; gap: 8px;">
+                        <i class="fas fa-plus"></i> Report Your First Issue
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Anand Municipal Corporation</h3>
+                    <p>Dedicated to providing efficient urban services and maintaining infrastructure for the citizens
+                        of Anand.</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">Report Issue</a></li>
+                        <li><a href="#">Check Status</a></li>
+                        <li><a href="#">Services</a></li>
+                        <li><a href="#">Departments</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h3>Contact Info</h3>
+                    <ul class="contact-info">
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Municipal Corporation Building,<br>Anand, Gujarat 388001</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-phone"></i>
+                            <span>+91 2692 256 300</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <span>info@anandmc.gov.in</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="copyright">
+                <p>&copy; 2025 Anand Municipal Corporation. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="auth.js"></script>
+    <script src="try.js"></script>
+</body>
+</html>
